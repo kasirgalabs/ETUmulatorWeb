@@ -1,0 +1,5 @@
+rootProject.name = 'ETUmulatorWeb'
+
+include 'ETUmulator'
+
+project(':ETUmulator').projectDir = new File('../ETUmulator')
