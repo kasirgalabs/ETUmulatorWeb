@@ -1,24 +1,44 @@
 apply plugin: "application"
 
+
 sourceCompatibility = "1.8"
 targetCompatibility = "1.8"
+
 
 [compileJava, compileTestJava]*.options*.encoding = "UTF-8"
 
 mainClassName = "com.kasirgalabs.etumulatorweb.ETUmulatorWeb"
+
+
+
 
 repositories {
     jcenter()
 }
 
 dependencies {
+
     compile(project(":ETUmulator")) {
         transitive = false
     }
+    
     compile group: "org.glassfish.jersey.containers", name: "jersey-container-grizzly2-http", version: "2.26"
     compile group: "org.glassfish.jersey.core", name: "jersey-server", version: "2.26"
     compile group: "org.glassfish.jersey.inject", name: "jersey-hk2", version: "2.26"
 }
+
+jar {
+  manifest { 
+    attributes "Main-Class": "$mainClassName"
+  }  
+
+  from {
+    configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+  }
+}
+
+
+
 
 task wrapper(type: Wrapper) {
     gradleVersion = "2.10"
