@@ -37,6 +37,16 @@ jar {
   }
 }
 
+task stage(dependsOn: ['build', 'clean'])
+build.mustRunAfter clean
+
+task copyToLib(type: Copy) {
+    into "build/libs"
+    from(configurations.compile)
+}
+
+stage.dependsOn(copyToLib)
+
 
 
 
