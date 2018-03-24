@@ -38,7 +38,7 @@ build.mustRunAfter clean
 
 
 task copyToLib(type: Copy) {
-    into "build/lib"
+    into "build/lib/*.jar"
     from(configurations.compile)
 }
 stage.dependsOn(copyToLib)
