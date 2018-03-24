@@ -10,13 +10,6 @@ buildscript {
   }
 }
 
-task copyToLib(type: Copy) {
-    into "$buildDir/lib"
-    from(configurations.compile)
-}
-
-stage.dependsOn(copyToLib)
-
 
 plugins {
   id "com.heroku.sdk.heroku-gradle" version "1.0.1"
@@ -59,7 +52,12 @@ task stage(dependsOn: ['build', 'clean'])
 build.mustRunAfter clean
 
 
+task copyToLib(type: Copy) {
+    into "$buildDir/lib"
+    from(configurations.compile)
+}
 
+stage.dependsOn(copyToLib)
 
 
 task wrapper(type: Wrapper) {
