@@ -1,21 +1,5 @@
 
-buildscript {
-  repositories {
-    maven {
-      url "https://plugins.gradle.org/m2/"
-    }
-  }
-  dependencies {
-    classpath "gradle.plugin.com.heroku.sdk:heroku-gradle:1.0.1"
-  }
-}
-
-
-plugins {
-  id "com.heroku.sdk.heroku-gradle" version "1.0.1"
-}
 apply plugin: "application"
-apply plugin: "com.heroku.sdk.heroku-gradle"
 
 sourceCompatibility = "1.8"
 targetCompatibility = "1.8"
@@ -53,7 +37,7 @@ build.mustRunAfter clean
 
 
 task copyToLib(type: Copy) {
-    into "$buildDir/lib"
+    into "build/lib"
     from(configurations.compile)
 }
 
