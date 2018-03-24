@@ -33,14 +33,14 @@ jar {
   }
 }
 
-task stage(dependsOn: ['build', 'clean'])
+task build(dependsOn: ['build', 'clean'])
 build.mustRunAfter clean
 
 task copyToLib(type: Copy) {
-    into "$buildDir/lib"
+    into "build/lib"
     from(configurations.compile)
 }
-stage.dependsOn(copyToLib)
+build.dependsOn(copyToLib)
 
 
 task wrapper(type: Wrapper) {
