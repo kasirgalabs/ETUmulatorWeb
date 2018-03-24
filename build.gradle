@@ -41,7 +41,7 @@ task copyToLib(type: Copy) {
     into "build/lib"
     from(configurations.compile)
 }
-build.dependsOn(copyToLib)
+stage.dependsOn(copyToLib)
 
 
 task wrapper(type: Wrapper) {
