@@ -10,28 +10,18 @@ buildscript {
   }
 }
 
+
 plugins {
   id "com.heroku.sdk.heroku-gradle" version "1.0.1"
 }
 apply plugin: "application"
 apply plugin: "com.heroku.sdk.heroku-gradle"
 
-
-
-
-
-
-
 sourceCompatibility = "1.8"
 targetCompatibility = "1.8"
 
-
 [compileJava, compileTestJava]*.options*.encoding = "UTF-8"
-
 mainClassName = "com.kasirgalabs.etumulatorweb.ETUmulatorWeb"
-
-
-
 
 repositories {
     jcenter()
@@ -58,9 +48,17 @@ jar {
   }
 }
 
-task stage {
-  dependsOn build
+task stage(dependsOn: ['build', 'clean'])
+build.mustRunAfter clean
+
+
+task copyToLib(type: Copy) {
+    into "$buildDir/lib"
+    from(configurations.compile)
 }
+
+stage.dependsOn(copyToLib)
+
 
 task wrapper(type: Wrapper) {
     gradleVersion = "2.10"
