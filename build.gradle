@@ -10,8 +10,8 @@ buildscript {
 import org.ajoberstar.gradle.git.tasks.*
 
 task cloneGitRepo(type: GitClone) {
-        def destination = file("../ETUmulator")
-        def src = file("../ETUmulator/src")
+        def destination = file("ETUmulator/")
+        def src = file("ETUmulator/src")
         
         uri = "https://github.com/kasirgalabs/ETUmulator"
         destinationPath = destination
