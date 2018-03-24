@@ -1,4 +1,17 @@
 
+buildscript {
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath "gradle.plugin.com.heroku.sdk:heroku-gradle:1.0.1"
+  }
+}
+
+
+
 apply plugin: "application"
 
 sourceCompatibility = "1.8"
