@@ -1,5 +1,7 @@
 rootProject.name = 'ETUmulatorWeb'
 
 include 'ETUmulator'
-
+def dir = new File('../ETUmulator')
+dir.mkdirs()
 project(':ETUmulator').projectDir = new File('../ETUmulator')
+    
