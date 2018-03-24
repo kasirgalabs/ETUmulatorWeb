@@ -1,4 +1,9 @@
+plugins {
+  id "com.heroku.sdk.heroku-gradle" version "1.0.1"
+}
+
 apply plugin: "application"
+
 
 
 
@@ -33,16 +38,33 @@ jar {
   }
 }
 
-task build(dependsOn: ['build', 'clean'])
+task stage(dependsOn: ['build', 'clean'])
 build.mustRunAfter clean
 
 task copyToLib(type: Copy) {
-    into "build/lib"
+    into "$buildDir/lib"
     from(configurations.compile)
 }
-build.dependsOn(copyToLib)
+stage.dependsOn(copyToLib)
 
 
 task wrapper(type: Wrapper) {
     gradleVersion = "2.10"
+}
+
+heroku {
+  appName = "tranquil-escarpment-42228"
+}
+
+
+
+heroku {
+  includes = ["build/lib"]
+  includeBuildDir = false
+}
+
+heroku {
+  processTypes(
+      web: "java -jar build/libs/ETUmulatorWeb.jar"
+  )
 }
