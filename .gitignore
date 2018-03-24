@@ -2,7 +2,6 @@
 *.log
 *.ctxt
 .mtj.tmp/
-*.jar
 *.war
 *.ear
 *.zip
@@ -12,7 +11,6 @@ hs_err_pid*
 .gradle
 build/
 gradle-app.setting
-!gradle-wrapper.jar
 .gradletasknamecache
 .idea/
 cmake-build-debug/
