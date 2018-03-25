@@ -1,3 +1,6 @@
 [submodule "ETUmulator"]
     path = ETUmulator
     url = https://github.com/kasirgalabs/ETUmulator.git
+[submodule "librariesForETUmulator/ETUmulator"]
+	path = librariesForETUmulator/ETUmulator
+	url = https://github.com/kasirgalabs/ETUmulator
