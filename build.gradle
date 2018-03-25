@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    compile(project(":ETUmulator")) {
+    compile(project("ETUmulator")) {
         transitive = false
     }
     compile group: "org.glassfish.jersey.containers", name: "jersey-container-grizzly2-http", version: "2.26"
