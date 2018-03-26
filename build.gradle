@@ -10,7 +10,6 @@ mainClassName = "com.kasirgalabs.etumulatorweb.ETUmulatorWeb"
 
 repositories {
     jcenter()
-    mavenLocal()
 }
 
 
@@ -36,10 +35,11 @@ jar {
 }
 
 task stage(dependsOn: ['build', 'clean'])
-stage.mustRunAfter clean
+build.mustRunAfter clean
 
 task copyToLib(type: Copy) {
-    into "ETUmulator/build/libs"
+    into "$buildDir"
+    from(configurations.compile)
 }
 
 stage.dependsOn(copyToLib)
