@@ -39,7 +39,7 @@ task stage(dependsOn: ['build', 'clean'])
 build.mustRunAfter clean
 
 task copyToLib(type: Copy) {
-    into "$buildDir/lib"
+    into "ETUmulator/build/libs"
     from(configurations.compile)
 }
 
