@@ -40,7 +40,9 @@ build.mustRunAfter clean
 
 task copyToLib(type: Copy) {
     into "ETUmulator/build/libs"
-    from(configurations.compile)
+    from(configurations.compile) {
+        include "ETUmulator"
+    }
 }
 
 stage.dependsOn(copyToLib)
