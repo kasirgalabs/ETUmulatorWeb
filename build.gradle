@@ -39,13 +39,10 @@ jar {
 }
 
 task stage(dependsOn: ['build', 'clean'])
-build.mustRunAfter clean
+stage.mustRunAfter clean
 
 task copyToLib(type: Copy) {
     into "ETUmulator/build/libs"
-    from(configurations.compile) {
-        include "ETUmulator"
-    }
 }
 
 stage.dependsOn(copyToLib)
