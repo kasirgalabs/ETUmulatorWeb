@@ -20,25 +20,6 @@ dependencies {
     compile group: "org.glassfish.jersey.inject", name: "jersey-hk2", version: "2.26"
 }
 
-jar {
-  manifest { 
-    attributes "Main-Class": "$mainClassName"
-  }  
-  from {
-    configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
-  }
-}
-
-task stage(dependsOn: ['build', 'clean'])
-build.mustRunAfter clean
-
-task copyToLib(type: Copy) {
-    into "./build/libs"
-    from(configurations.compile)
-}
-
-stage.dependsOn(copyToLib)
-
 task wrapper(type: Wrapper) {
     gradleVersion = "2.10"
 }
