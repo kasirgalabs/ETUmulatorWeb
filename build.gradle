@@ -10,7 +10,6 @@ mainClassName = "com.kasirgalabs.etumulatorweb.ETUmulatorWeb"
 
 repositories {
     jcenter()
-    maven { url 'https://repo.gradle.org/gradle/libs-releases' }
 }
 
 ext {
@@ -44,7 +43,7 @@ task stage(dependsOn: ['build', 'clean'])
 build.mustRunAfter clean
 
 task copyToLib(type: Copy) {
-    into "../.m2/repository"
+    into ".m2/repository"
     from(configurations.compile)
 }
 
