@@ -29,6 +29,8 @@ dependencies {
     compile group: "org.glassfish.jersey.inject", name: "jersey-hk2", version: "2.26"
 }
 
+task stage(dependsOn: ['installDist'])
+
 task wrapper(type: Wrapper) {
     gradleVersion = "2.10"
 }
