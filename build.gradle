@@ -29,6 +29,14 @@ jar {
   }
 }
 
+
+task copyToLib(type: Copy) {
+    into "./build/libs"
+    from(configurations.compile)
+}
+
+stage.dependsOn(copyToLib)
+
 task wrapper(type: Wrapper) {
     gradleVersion = "2.10"
 }
