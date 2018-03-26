@@ -11,8 +11,8 @@ public class ETUmulatorWeb {
     private static final URI BASE_URI = URI.create("http://localhost:8080/");
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        ResourceConfig resourceConfig = new ResourceConfig();
-        HttpServer httpServer = GrizzlyHttpServerFactory.createHttpServer(BASE_URI, resourceConfig, false);
+        ResourceConfig resourceConfig = new ResourceConfig().packages("com.kasirgalabs.etumulatorweb");
+        final HttpServer httpServer = GrizzlyHttpServerFactory.createHttpServer(BASE_URI, resourceConfig, false);
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             @Override
             public void run() {
