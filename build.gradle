@@ -10,9 +10,12 @@ mainClassName = "com.kasirgalabs.etumulatorweb.ETUmulatorWeb"
 
 repositories {
     jcenter()
+    maven { url 'https://repo.gradle.org/gradle/libs-releases' }
 }
 
-
+ext {
+  thirdpartyLibsDir = "$project.rootDir/libs/"
+}
 
 dependencies {
     compile(project("ETUmulator")) {
@@ -20,6 +23,7 @@ dependencies {
     	targetCompatibility = "1.8"
         transitive = false
     }
+    compile fileTree(thirdpartyLibsDir)
     compile group: "org.glassfish.jersey.containers", name: "jersey-container-grizzly2-http", version: "2.26"
     compile group: "org.glassfish.jersey.core", name: "jersey-server", version: "2.26"
     compile group: "org.glassfish.jersey.inject", name: "jersey-hk2", version: "2.26"
@@ -33,6 +37,8 @@ jar {
     configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
   }
 }
+
+
 
 task stage(dependsOn: ['build', 'clean'])
 build.mustRunAfter clean
