@@ -1,10 +1,6 @@
 apply plugin: "application"
 apply plugin: 'java'
 
-
-
-
-
 sourceCompatibility = "1.8"
 targetCompatibility = "1.8"
 
@@ -14,12 +10,13 @@ mainClassName = "com.kasirgalabs.etumulatorweb.ETUmulatorWeb"
 
 repositories {
     jcenter()
+    mavenLocal()
 }
 
 
 
 dependencies {
-    compile(project(":ETUmulator")) {
+    compile(project("ETUmulator")) {
     	sourceCompatibility = '1.8'
     	targetCompatibility = "1.8"
         transitive = false
