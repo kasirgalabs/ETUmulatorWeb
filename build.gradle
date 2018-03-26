@@ -1,5 +1,11 @@
+
+plugins {
+  id "com.heroku.sdk.heroku-gradle" version "1.0.1"
+}
 apply plugin: "application"
 apply plugin: 'java'
+
+
 
 
 
@@ -46,7 +52,16 @@ task copyToLib(type: Copy) {
     }
 }
 
-build.dependsOn(copyToLib)
+stage.dependsOn(copyToLib)
+
+heroku {
+  appName = "fierce-refuge-14325"
+}
+
+heroku {
+  includes = ["build/libs/my-app.jar"]
+  includeBuildDir = false
+}
 
 task wrapper(type: Wrapper) {
     gradleVersion = "2.10"
