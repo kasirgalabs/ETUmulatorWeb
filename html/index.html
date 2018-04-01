@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Etumulator Web</title>
+<link rel="stylesheet" type="text/css" href="view.css" media="all">
+<script type="text/javascript" src="view.js"></script>
+<script type="text/javascript" >
+
+function proceed () {
+    var xhr = new XMLHttpRequest();
+xhr.open("POST", 'http://localhost:8080/run', true);
+xhr.setRequestHeader('Content-Type', 'application/json');
+
+xhr.send(JSON.stringify({
+    code: "code"
+}));
+}
+</script>
+</head>
+<body id="main_body" >
+	
+	<img id="top" src="top.png" alt="">
+	<div id="form_container">
+	
+		<h1><a>Etumulator Assembly Compiler</a></h1>
+		<form id="form_3874" class="appnitro"  method="post" action="">
+					<div class="form_description">
+			<h2>Etumulator Assembly Compiler</</h2>
+		</div>						
+			<ul >
+			
+					<li id="li_1" >
+		<label class="description" for="element_1">Assembly Code:  </label>
+		<div>
+			<textarea id="code" name="code" class="element textarea large"></textarea> 
+		</div> 
+		</li>		
+		<li class="buttons">
+			    <input type="hidden" name="form_id" value="3874" />
+			    
+				<button type="button" onclick="proceed();">Run</button> 
+		</li><li class="section_break">
+			<h3>Results:</h3>
+			<p></p>
+		</li>		<li id="li_3" >
+		<label class="description" for="element_3">r0 </label>
+		<div>
+			<input id="element_r0" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>
+		<li id="li_3" >
+		<label class="description" id="r1">r1 </label>
+		<div>
+			<input id="element_r1" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>
+		<li id="li_3" >
+		<label class="description" id="r2">r2 </label>
+		<div>
+			<input id="element_r2" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>
+		<li id="li_3" >
+		<label class="description" id="r3">r3 </label>
+		<div>
+			<input id="element_r3" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>
+		<li id="li_3" >
+		<label class="description" id="r4">r4 </label>
+		<div>
+			<input id="element_r4" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>
+		<li id="li_3" >
+		<label class="description" id="r5">r5 </label>
+		<div>
+			<input id="element_r5" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>
+		<li id="li_3" >
+		<label class="description" id="r6">r6 </label>
+		<div>
+			<input id="element_r6" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>
+		<li id="li_3" >
+		<label class="description" id="r7">r7 </label>
+		<div>
+			<input id="element_r7" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>
+		<li id="li_3" >
+		<label class="description" id="r8">r8 </label>
+		<div>
+			<input id="element_r8" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>
+		<li id="li_3" >
+		<label class="description" id="r9">r9 </label>
+		<div>
+			<input id="element_r9" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>
+		<li id="li_3" >
+		<label class="description" id="r10">r10 </label>
+		<div>
+			<input id="element_r10" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>
+		<li id="li_3" >
+		<label class="description" id="r11">r11 </label>
+		<div>
+			<input id="element_r11" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>
+		<li id="li_3" >
+		<label class="description" id="r12">r12 </label>
+		<div>
+			<input id="element_r12" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>
+		<li id="li_3" >
+		<label class="description" id="LR">LR </label>
+		<div>
+			<input id="element_lr" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>
+		<li id="li_3" >
+		<label class="description" id="PC">PC </label>
+		<div>
+			<input id="element_pc" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>
+			
+					
+			</ul>
+		</form>	
+		
+	</div>
+	<img id="bottom" src="bottom.png" alt="">
+	</body>
+</html>
