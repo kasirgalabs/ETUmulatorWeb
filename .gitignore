@@ -34,6 +34,9 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+#Eclipse
+.classpath
+.project
 .metadata
 bin/
 tmp/
