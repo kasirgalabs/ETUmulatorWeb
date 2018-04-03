@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.net.URI;
 
 public class ETUmulatorWeb {
-    private static final URI BASE_URI = URI.create("http://localhost:8080/run");
+    private static final URI BASE_URI = URI.create("http://localhost:8080/");
 
     public static void main(String[] args) throws IOException, InterruptedException {
         ResourceConfig resourceConfig = new ResourceConfig().register(Homepage.class);
